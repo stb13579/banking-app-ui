@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  ui:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      # Browser hits the gateway directly — CORS wildcard on gateway allows this
+      VITE_API_URL: http://localhost:3000
+    restart: unless-stopped
